@@ -18,7 +18,7 @@
 
   ``` 
 ## file structure  
-  #src/
+  -src/
       - index.js 
       - config/
       - controllers/
@@ -27,7 +27,7 @@
       - repository
       - services/
       - utils/
-  #testing[later]
+  -testing[later]
 
 ## Steps
 
