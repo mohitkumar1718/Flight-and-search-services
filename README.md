@@ -17,6 +17,7 @@
   }
 
   ``` 
+- Once you have done the config as mentioned above then go to src from terminal and run the command `npz sequelize db:create`
 ## file structure  
 -src/
   - index.js 
