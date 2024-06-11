@@ -7,7 +7,7 @@ const {PORT}=require('./config/serverConfig');
 
 const setupAndStartServer=async()=>{
 
-
+ 
     const app =express();
 
     app.use(bodyParser.json());
@@ -17,7 +17,7 @@ const setupAndStartServer=async()=>{
         console.log(`Server started ad Port ${PORT}`);
         
        
-        
+         
     })
 }
 setupAndStartServer();

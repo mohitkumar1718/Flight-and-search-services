@@ -20,6 +20,7 @@
 - Once you have done the config as mentioned above then go to src from terminal and run the command `npz sequelize db:create`
 and then execute 
 ` npx sequelize db:migrate`
+
 ## file structure  
 -src/
   - index.js 
@@ -33,14 +34,14 @@ and then execute
   -testing[later]
 
 ## DB Design
--flight table
--airplane table
--city table
--airport table
+  - flight table
+  - airplane table
+  - city table
+  - airport table
 
--a flight belong to an airplane but an airplane can belongs to many flight
--A city has many airport but Airport belong to one city only
--A airport has many flight but a flight only belong to only one Airport
+  - A flight belong to an airplane but an airplane can belongs to many flight
+  - A city has many airport but Airport belong to one city only
+  - A airport has many flight but a flight only belong to only one Airport
 
 ## Steps
 
