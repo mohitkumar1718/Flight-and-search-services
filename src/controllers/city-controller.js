@@ -45,6 +45,7 @@ const destroy=async(req,res)=>{
     }
 
 }
+
 const update=async(req,res)=>{
     try{
         const response=await cityService.updateCity(req.params.id, req.body);
@@ -86,4 +87,11 @@ const get=async(req,res)=>{
 
     }
 
+}
+
+module.exports={
+    create,
+    update,
+    destroy,
+    get,
 }
