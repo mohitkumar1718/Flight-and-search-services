@@ -12,13 +12,13 @@ class CityRepository{
          throw{error};
        }
     }
-    async deleteCity({cityId}){
+    async deleteCity(cityId){
         try{
             await City.destroy({
                 where:{
-                id:cityId
+                 id:cityId 
                 }
-            })
+            });
             return true;
         }
         catch(error){ 
@@ -26,27 +26,34 @@ class CityRepository{
             throw{error};
         }
     }
-    async updateCity({cityId, data}){
+    async updateCity(cityId, data){
         try{
-          const city=await City.update(data,{
-            where:{
-                id:cityId,
-            }
-          })
+          // const city=await City.update(data,{
+          //   where:{
+          //       id:cityId,
+          //   }
+          // })
+          // return city;
+          const city = await City.findByPk(cityId);
+          console.log(city);
+          city.name = data.name;
+          await city.save();
           return city;
         }
         catch(error){
+          
           console.log("there is a error in city repository");
           throw{error}
         }
     }
     async getCity(cityId){
         try{
-          const city=await City.findByPk(cityId)
+          const city=await City.findByPk(cityId);
+          return city;
         }
         catch(error){
             console.log("there is a error in city repository");
-            throw{error} 
+            throw{error} ;
         }
     }
 }
