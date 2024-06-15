@@ -62,16 +62,16 @@ and then execute
       ```
       this above command will create Airport model with these attributes name, cityId, address, createdAt, updatedAt 
       - after this do association in city to define city has many airports
-      ```
+  ```
           static associate(models) {
           // define association here
           this.hasMany(models.Airport,{
           foreignKey:'cityId',
          })
      }
-      ```
+  ```
     - in airport do this in static associate
-    ```
+  ```
     static associate(models) {
       // define association here
       this.belongsTo(models.city,{
@@ -80,4 +80,4 @@ and then execute
       })
     }
   }
-    ```
+  ```
