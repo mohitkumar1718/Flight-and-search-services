@@ -53,3 +53,31 @@ and then execute
    - create database by npx sequelize create:db // it will create database  
 
 
+## Tables
+  ### City table-> id , name , createdAt, UpdatedAt
+  ### Airport -> id ,name, cityId, Address , createdAt, updatedAt
+      Relationship -> City has many Airport and Airport belongs to One city(one to many )
+      ```
+      npx sequelize model:generate --name Airport --attributes name:string, cityId:integer, address:string
+      ```
+      this above command will create Airport model with these attributes name, cityId, address, createdAt, updatedAt 
+      - after this do association in city to define city has many airports
+      ```
+          static associate(models) {
+          // define association here
+          this.hasMany(models.Airport,{
+          foreignKey:'cityId',
+         })
+     }
+      ```
+    - in airport do this in static associate
+    ```
+    static associate(models) {
+      // define association here
+      this.belongsTo(models.city,{
+        foreignKey:'cityId',
+        onDelete:'CASCADE'
+      })
+    }
+  }
+    ```
