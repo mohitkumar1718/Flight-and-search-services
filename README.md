@@ -81,3 +81,22 @@ and then execute
     }
   }
   ```
+  ## sync the model with db by running this command in index file 
+    ```
+    const db=require('./models/index')
+    const sequelize=require('sequelize')
+
+    if(process.env.DB_SYNC){   // add DB_SYNC=TRUE/FALSE .env  
+            db.sequelize.sync({alter:true});
+        }
+   
+    ```
+
+### crete seed file for seeding data in model // run this in src folder
+  ```
+  npx sequelize seed:generate --name
+  ```
+### seed the seeder file // run this in src folder
+ ```
+ npx sequelize db:seed:all
+ ```
