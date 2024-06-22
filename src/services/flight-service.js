@@ -12,7 +12,6 @@ class FlightService{
           throw{error:'Arrival time cannot be less then departure time'};
         }
         const airplane=await this.airplaneRepository.getAirplane(data.airPlainId);
-        console.log(data);
         const flight=await this.flightRepository.createFlight({
             ...data, totalSeats:airplane.capacity
         })
@@ -22,8 +21,14 @@ class FlightService{
         throw{error};
       }
     }
-    async getFlight(){
-        //todo
+    async getAllFlightData(data){
+      try{
+        const flight=await this.flightRepository.getAllFlight(data)
+        return flight; 
+      }catch(error){
+        console.log("there is some error in get all flight service")
+        throw{error};
+      }
     }
     }
     module.exports=FlightService;
