@@ -1,11 +1,12 @@
 const {CityService} =require('../services/index');
+const { SuccessCodes, ServerErrorCodes } = require('../utils/error-codes');
 
 const cityService=new CityService();
 
 const create=async(req,res)=>{
     try{
      const city=await cityService.createCity(req.body);
-      return res.status(201).json({
+      return res.status(SuccessCodes.CREATED).json({
         data: city,
         status:true,
         message:"Successfully created a city",
@@ -13,7 +14,7 @@ const create=async(req,res)=>{
       });
     }catch(error){
         console.log(error)
-        return res.status(500).json({
+        return res.status(ServerErrorCodes.INTERNAL_SERVER_ERROR).json({
             data: {},
             status:false,
             message:"Not able to create a city",
@@ -26,7 +27,7 @@ const create=async(req,res)=>{
 const destroy=async(req,res)=>{
     try{
         const response=await cityService.deleteCity(req.params.id);
-        return res.status(200).json({
+        return res.status(SuccessCodes.OK).json({
           data: response,
           status:true,
           message:"Successfully deleted  a city",
@@ -50,7 +51,7 @@ const destroy=async(req,res)=>{
 const update=async(req,res)=>{
     try{
         const response=await cityService.updateCity(req.params.id, req.body);
-        return res.status(200).json({
+        return res.status(SuccessCodes.OK).json({
           data: response,
           status:true,
           message:"Successfully updated the city",
@@ -71,7 +72,7 @@ const update=async(req,res)=>{
 const get=async(req,res)=>{
     try{
         const response=await cityService.getCity(req.params.id);
-        return res.status(200).json({
+        return res.status(SuccessCodes.OK).json({
           data: response,
           status:true,
           message:"Successfully get the city",
@@ -93,7 +94,7 @@ const get=async(req,res)=>{
 const getAll=async(req,res)=>{
   try{
       const response=await cityService.getAllCity(req.query);
-      return res.status(200).json({
+      return res.status(SuccessCodes.OK).json({
         data: response,
         status:true,
         message:"Successfully get the all cities",
